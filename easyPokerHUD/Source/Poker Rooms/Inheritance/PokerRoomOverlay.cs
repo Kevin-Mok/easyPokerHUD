@@ -123,6 +123,7 @@ namespace easyPokerHUD
                 statsWindow.VPIP.Font = fontForTheStats;
                 statsWindow.PFR.Font = fontForTheStats;
                 statsWindow.AFq.Font = fontForTheStats;
+                statsWindow.BB.Font = fontForTheStats;
                 statsWindow.handsplayed.Font = new Font("Arial", fontSize + 2, FontStyle.Regular);
             }
         }
@@ -169,10 +170,14 @@ namespace easyPokerHUD
                     statsWindow.populateStatsWindow(playerForThisSeat);
                     statsWindow.Visible = true;
                 }
-                catch
+                catch (InvalidOperationException)
                 {
+                    Console.Out.WriteLine("Hiding HUD for Seat " + statsWindow.seatNumber);
                     statsWindow.Visible = false;
                 }
+                //var playerForThisSeat = players.Single(p => p.seat == statsWindow.seatNumber);
+                //statsWindow.populateStatsWindow(playerForThisSeat);
+                //statsWindow.Visible = true;
             }
         }
 

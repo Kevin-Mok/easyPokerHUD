@@ -23,6 +23,7 @@ namespace easyPokerHUD
             setAFqColor();
             setPFRColor();
             setVPIPColor();
+            setBBColor();
         }
 
         //Populates the labels with the player data
@@ -124,6 +125,28 @@ namespace easyPokerHUD
             else
             {
                 this.AFq.ForeColor = Color.GhostWhite;
+            }
+        }
+
+        //Sets the color of the BB stat
+        private void setBBColor()
+        {
+            double bb = Convert.ToDouble(BB.Text);
+            if (bb > 50)
+            {
+                this.BB.ForeColor = Color.Green;
+            }
+            else if (bb > 30)
+            {
+                this.BB.ForeColor = Color.Orange;
+            }
+            else if (bb > 20)
+            {
+                this.BB.ForeColor = Color.Yellow;
+            }
+            else
+            {
+                this.BB.ForeColor = Color.Red;
             }
         }
     }

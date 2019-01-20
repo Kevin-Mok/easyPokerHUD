@@ -93,7 +93,7 @@
             this.BB.BackColor = System.Drawing.Color.Transparent;
             this.BB.Font = new System.Drawing.Font("Arial", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.BB.ForeColor = System.Drawing.Color.White;
-            this.BB.Location = new System.Drawing.Point(4, 17);
+            this.BB.Location = new System.Drawing.Point(177, 1);
             this.BB.Name = "BB";
             this.BB.Size = new System.Drawing.Size(32, 16);
             this.BB.TabIndex = 4;
@@ -115,7 +115,7 @@
             this.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F);
             this.Name = "StatsWindow";
             this.Padding = new System.Windows.Forms.Padding(1, 1, 1, 0);
-            this.Size = new System.Drawing.Size(175, 33);
+            this.Size = new System.Drawing.Size(213, 17);
             this.ResumeLayout(false);
             this.PerformLayout();
 
