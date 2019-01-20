@@ -1,6 +1,7 @@
 ﻿using System.Collections.Generic;
 using System.IO;
 using System.Linq;
+using System.Text.RegularExpressions;
 
 namespace easyPokerHUD
 {
@@ -17,6 +18,7 @@ namespace easyPokerHUD
         //Parts of this hand
         public string[] hand;
         public string handInformation;
+        public int bigBlind;
         public string tableInformation;
         public string[] playerOverview;
         public string[] preflop;
@@ -44,6 +46,27 @@ namespace easyPokerHUD
                 player.hadActionInPot = false;
             }
             return players;
+        }
+
+        //Inserts the blinds stats into the player list
+        protected static List<Player> insertChipStats(string[] playerInformation, int bigBlind, List<Player> players,
+            string wordForChips)
+        {
+            foreach (string line in playerInformation)
+            {
+                foreach (Player player in players)
+                {
+                    if (line.Contains(player.name))
+                    {
+                        if (line.Contains(wordForChips))
+                        {
+                            player.chips = System.Int32.Parse(Regex.Match(line, @"(\d+)"+wordForChips).Groups[1].Value);
+                            player.bigBlinds = (double)player.chips / (double)bigBlind;
+                        }
+                    }
+                }
+            }
+            return resetHadActionInPot(players);
         }
 
         //Inserts the preflop stats into the player list

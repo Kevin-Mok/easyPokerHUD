@@ -32,6 +32,7 @@ namespace easyPokerHUD
             VPIP.Text = player.calculateVPIP().ToString();
             PFR.Text = player.calculatePFR().ToString();
             AFq.Text = player.calculateAFq().ToString();
+            BB.Text = player.calculateBB().ToString();
             handsplayed.Text = getNumberOfHandsPlayedString(player.handsPlayed);
 
             //In case pfr is higher than vpip, vpip will be shown instead of pfr
